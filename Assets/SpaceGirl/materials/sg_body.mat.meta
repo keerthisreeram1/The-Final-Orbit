@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 690f03bd7230f064ea3f615a7350c1f4
+timeCreated: 1547561382
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137796
+  packageName: Spaces girl
+  packageVersion: 1.0
+  assetPath: Assets/Spaces girl/materials/sg_body.mat
+  uploadId: 290100

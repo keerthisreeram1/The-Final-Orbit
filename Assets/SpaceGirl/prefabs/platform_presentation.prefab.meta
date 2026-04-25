@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: d242092e4baa9fe40bd5176f0cc31306
+timeCreated: 1548439275
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137796
+  packageName: Spaces girl
+  packageVersion: 1.0
+  assetPath: Assets/Spaces girl/prefabs/platform_presentation.prefab
+  uploadId: 290100
