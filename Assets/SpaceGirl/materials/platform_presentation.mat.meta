@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: fa5e82de7d61eb24fb3c36267a235a84
+timeCreated: 1548193312
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137796
+  packageName: Spaces girl
+  packageVersion: 1.0
+  assetPath: Assets/Spaces girl/materials/platform_presentation.mat
+  uploadId: 290100

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 72210be9b7c5322458c87047d772420c
+timeCreated: 1547765917
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137796
+  packageName: Spaces girl
+  packageVersion: 1.0
+  assetPath: Assets/Spaces girl/materials/eyelashes.mat
+  uploadId: 290100
