@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 738e9908776f65b43b689a6284369516
+timeCreated: 1547766549
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137796
+  packageName: Spaces girl
+  packageVersion: 1.0
+  assetPath: Assets/Spaces girl/animator/spaces_girl.controller
+  uploadId: 290100

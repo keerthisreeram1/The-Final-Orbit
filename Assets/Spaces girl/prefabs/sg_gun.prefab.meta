@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: cfcb9d11f5b5a90429c9197c5bbc87a9
+timeCreated: 1548439258
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137796
+  packageName: Spaces girl
+  packageVersion: 1.0
+  assetPath: Assets/Spaces girl/prefabs/sg_gun.prefab
+  uploadId: 290100
