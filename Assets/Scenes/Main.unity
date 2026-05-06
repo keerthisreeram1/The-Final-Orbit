@@ -3507,6 +3507,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8799728242623013699, guid: 69614eaeaced41249a717d5915c14ffb, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799728242623013699, guid: 69614eaeaced41249a717d5915c14ffb, type: 3}
       propertyPath: ShapeModule.radiusThickness
       value: 1
       objectReference: {fileID: 0}
