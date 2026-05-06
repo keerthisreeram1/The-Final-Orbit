@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4622143831866434c9b81db10e2d13ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
+  damageAmount: 1
   muzzleFlash: {fileID: 5104329379395489732}
 --- !u!1 &546380129
 GameObject:
@@ -941,7 +942,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ee6b4e96d25e3e4f9f31ed5e2666cdb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1780434401}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ee6b4e96d25e3e4f9f31ed5e2666cdb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1780434397}
   m_SourcePrefab: {fileID: 100100000, guid: 8ee6b4e96d25e3e4f9f31ed5e2666cdb, type: 3}
 --- !u!114 &1618345115
 MonoBehaviour:
@@ -1016,6 +1023,45 @@ MonoBehaviour:
   - {fileID: 4872949616283969}
   - {fileID: 4313068957740481}
   - {fileID: 4530300277434863}
+--- !u!1 &1780434396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ee6b4e96d25e3e4f9f31ed5e2666cdb, type: 3}
+  m_PrefabInstance: {fileID: 1571929557}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1780434397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780434396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d8d5403a59c144da243e45b1b7cd4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  startingHealth: 3
+--- !u!65 &1780434401
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780434396}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1165138, y: 0.9750458, z: 1.0016268}
+  m_Center: {x: 0, y: -0.06417741, z: -0.0574435}
 --- !u!1 &1832926626
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,14 +4,16 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     StarterAssetsInputs starterAssetsInputs;
+    Camera mainCamera;
 
-    // Projectiles
+    [SerializeField] int damageAmount = 1;
     [SerializeField] ParticleSystem muzzleFlash;
 
     private void Awake() {
         starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
+        mainCamera = Camera.main;
     }
-    
+
     void Update() {
         HandleShoot();
     }
@@ -19,15 +21,14 @@ public class Weapon : MonoBehaviour
     void HandleShoot() {
         if (!starterAssetsInputs.shoot) return;
 
-        // Play muzzleFlash on everyshot
         muzzleFlash.Play();
 
         RaycastHit hit;
-
-        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity)){
-            Debug.Log(hit.collider.name);
+        if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, Mathf.Infinity)) {
+            EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
+            enemyHealth?.TakeDamage(damageAmount);
         }
-        
+
         starterAssetsInputs.ShootInput(false);
     }
 }
