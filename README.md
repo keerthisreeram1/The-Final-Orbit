@@ -113,9 +113,9 @@ Inspired by *No Man's Sky* — photorealistic space environments contrasted with
 
 ## Built With
 
-- **Engine:** Unity (2022.3 LTS)
+- **Engine:** Unity (2022.3.6 LTS)
 - **Language:** C#
-- **Base Templates:** Sharp Shooter (FPS) + Survival
+- **Base Templates:** Sharp Shooter (FPS)
 
 ---
 
