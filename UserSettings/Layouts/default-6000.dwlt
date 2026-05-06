@@ -327,8 +327,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1037.3334
-    y: 290
+    x: 227
+    y: 24
     width: 1056
     height: 664
   m_SerializedDataModeController:
@@ -545,8 +545,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "UnityEditor.MainToolbarWindow\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 811.3334
-    y: 254
+    x: 0
+    y: 0
     width: 1632
     height: 36
   m_SerializedDataModeController:
@@ -825,8 +825,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Project\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 811.3334
-    y: 980
+    x: 0
+    y: 714
     width: 1283
     height: 350.66663
   m_SerializedDataModeController:
@@ -877,11 +877,9 @@ MonoBehaviour:
       m_Data: 39360
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 38984
     - m_Data: 38986
     - m_Data: 38988
-    - m_Data: 39316
-    - m_Data: 1000000000
+    - m_Data: 38990
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -914,9 +912,9 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 38984
     - m_Data: 38986
     - m_Data: 38988
+    - m_Data: 38990
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1009,8 +1007,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 2095.3335
-    y: 290
+    x: 1285
+    y: 24
     width: 347
     height: 1040.6666
   m_SerializedDataModeController:
@@ -1060,8 +1058,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Hierarchy\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 811.3334
-    y: 290
+    x: 0
+    y: 24
     width: 225
     height: 664
   m_SerializedDataModeController:
@@ -1081,9 +1079,9 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs:
-      - m_Data: 38544
+      - m_Data: 38670
       m_LastClickedID:
-        m_Data: 38544
+        m_Data: 0
       m_ExpandedIDs:
       - m_Data: -1348
       - m_Data: -1328
@@ -1704,7 +1702,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.1899541, y: -0.6449148, z: 0.17184283, w: 0.72123134}
     speed: 2
-    m_Value: {x: 0.18979263, y: -0.64436656, z: 0.17169675, w: 0.72061825}
+    m_Value: {x: -0.18995409, y: 0.64491475, z: -0.17184283, w: -0.7212313}
   m_Size:
     m_Target: 0.0010100135
     speed: 2
