@@ -6,7 +6,6 @@
 ![Platform](https://img.shields.io/badge/Platform-Windows-blue)
 ![Genre](https://img.shields.io/badge/Genre-Sci--Fi%20Shooter-purple)
 ![Mode](https://img.shields.io/badge/Mode-Single--Player-green)
-![Rating](https://img.shields.io/badge/ESRB-T%20(Teen)-orange)
 
 ---
 
