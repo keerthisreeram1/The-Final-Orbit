@@ -111,27 +111,6 @@ Inspired by *No Man's Sky* — photorealistic space environments contrasted with
 
 ---
 
-## Project Structure
-
-```
-The-Final-Orbit/
-├── Assets/
-│   ├── Scenes/          # Unity scene files
-│   ├── Scripts/
-│   │   ├── Player/      # Movement, shooting, health
-│   │   ├── Enemy/       # Robot AI, patrol, attack logic
-│   │   ├── Power/       # Power Source & threshold system
-│   │   └── UI/          # HUD, menus, game over screen
-│   ├── Prefabs/         # Robots, weapons, power stations
-│   ├── Art/             # Textures, models, sprites
-│   └── Audio/           # Ambient tracks, SFX
-├── Packages/
-├── ProjectSettings/
-└── README.md
-```
-
----
-
 ## Built With
 
 - **Engine:** Unity (2022.3 LTS)
