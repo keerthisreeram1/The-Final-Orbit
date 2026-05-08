@@ -12,6 +12,8 @@ namespace StarterAssets
 	public class FirstPersonController : MonoBehaviour
 	{
 		[Header("Player")]
+		[Tooltip("Player Animation Controller")]
+		public Animator _animator;
 		[Tooltip("Move speed of the character in m/s")]
 		public float MoveSpeed = 4.0f;
 		[Tooltip("Sprint speed of the character in m/s")]
@@ -61,7 +63,6 @@ namespace StarterAssets
 		private float _terminalVelocity = 53.0f;
 
 		// Animator
-		private Animator _animator;
 		private bool _hasAnimator;
 
 		// timeout deltatime
@@ -105,7 +106,6 @@ namespace StarterAssets
 			_input = GetComponent<StarterAssetsInputs>();
 			
 			// Looks for children
-			_animator = GetComponentInChildren<Animator>();
 			_hasAnimator = _animator != null;
 
 #if ENABLE_INPUT_SYSTEM
