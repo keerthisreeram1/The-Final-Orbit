@@ -13,7 +13,7 @@
 
 **The Final Orbit** is a sci-fi third-person shooter built in Unity for PC. Set in the year 3001, you play as a lone human operative adrift in deep space — 900 light-years from Earth — carrying the last power source capable of saving humanity from a robot takeover. Relentless waves of AI-driven robots are in pursuit. Every shot you fire drains the very thing you're trying to protect.
 
-Developed by **Rebecca Smith & Keerthi Sreeram** (The Orbiters) for CS 4700 · Cal Poly Pomona.
+Developed by **Rebecca Smith & Keerthi Sreeram** for CS4700 at Cal Poly Pomona.
 
 ---
 
