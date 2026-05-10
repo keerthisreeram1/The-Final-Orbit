@@ -143,7 +143,7 @@ MonoBehaviour:
     DissipationMode: 2
     DissipationDistance: 100
     PropagationSpeed: 343
-  DefaultVelocity: {x: 0, y: -0.1, z: 0}
+  DefaultVelocity: {x: 0, y: -0.08, z: 0}
 --- !u!4 &3146807697353530142 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 860f35edef6dcfe40b58b14593dfeafb, type: 3}
