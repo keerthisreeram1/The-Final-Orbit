@@ -17,3 +17,7 @@ MonoBehaviour:
   FireRate: 0.2
   HitVFXPrefab: {fileID: 6563889739181837963, guid: 944f7d598a525b74492e788d40319bec, type: 3}
   IsAutomatic: 1
+  leftHandPosition: {x: -0.039, y: -0.0214, z: 0.091}
+  rightHandPosition: {x: 0, y: 0, z: -0.0189}
+  leftHandRotation: {x: 0, y: 0, z: 0}
+  rightHandRotation: {x: 0, y: 0, z: 0}

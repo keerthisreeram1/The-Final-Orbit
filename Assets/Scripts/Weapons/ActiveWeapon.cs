@@ -42,58 +42,53 @@ public class ActiveWeapon : MonoBehaviour
     IEnumerator SwapWeaponRoutine(WeaponSO newWeaponSO) {
         isSwitching = true;
 
-        // 1. DISCONNECT THE RIG
-        // Setting targets to null tells Burst to stop watching those transforms
         if (leftArmIK) leftArmIK.data.target = null;
         if (rightArmIK) rightArmIK.data.target = null;
 
-        // 2. REBIND THE EMPTY RIG
-        // This flushes the old transform "Handles" out of the system
-        if (rigBuilder) rigBuilder.Build();
-        
-        yield return null; // Wait for the "null" state to register
+        yield return null;
 
-        // 3. CLEANUP AND SPAWN
         if (currentWeapon) Destroy(currentWeapon.gameObject);
-        
+
         GameObject weaponGO = Instantiate(newWeaponSO.weaponPrefab, transform);
         weaponGO.transform.localPosition = Vector3.zero;
 
         currentWeapon = weaponGO.GetComponent<Weapon>();
         weaponSO = newWeaponSO;
 
-        // 4. ASSIGN NEW TARGETS
-        AssignNewTargets();
+        // Apply grip positions from WeaponSO
+        ApplyGripPositions(newWeaponSO);
 
-        // 5. FINAL REBUILD
-        // This creates fresh "Handles" for the new weapon's transforms
+        // Assign IK targets and rebuild
+        AssignIKTargetsAndRebind();
+
         if (rigBuilder) rigBuilder.Build();
 
-        if (animator) {
-            animator.Update(0f); // Forces the animator to snap to the current frame's pose
-        }
-
         isSwitching = false;
-    }
-
-    void AssignNewTargets() {
-        if (currentWeapon == null) return;
-
-        Transform leftTarget = FindDeepChild(currentWeapon.transform, "LeftArm_target");
-        Transform rightTarget = FindDeepChild(currentWeapon.transform, "RightArm_target");
-
-        if (leftArmIK) leftArmIK.data.target = leftTarget;
-        if (rightArmIK) rightArmIK.data.target = rightTarget;
     }
 
     void AssignIKTargetsAndRebind() {
         if (currentWeapon == null) return;
 
-        Transform leftTarget  = FindDeepChild(currentWeapon.transform, "LeftArm_target");
-        Transform rightTarget = FindDeepChild(currentWeapon.transform, "RightArm_target");
+        // Search ActiveWeapon's own children for the targets
+        Transform leftTarget  = FindDeepChild(transform, "LeftArm_target");
+        Transform rightTarget = FindDeepChild(transform, "RightArm_target");
 
         if (leftArmIK  && leftTarget)  leftArmIK.data.target  = leftTarget;
         if (rightArmIK && rightTarget) rightArmIK.data.target = rightTarget;
+    }
+
+    void ApplyGripPositions(WeaponSO weaponSO) {
+        Transform leftTarget  = FindDeepChild(transform, "LeftArm_target");
+        Transform rightTarget = FindDeepChild(transform, "RightArm_target");
+
+        if (leftTarget) {
+            leftTarget.localPosition    = weaponSO.leftHandPosition;
+            leftTarget.localEulerAngles = weaponSO.leftHandRotation;
+        }
+        if (rightTarget) {
+            rightTarget.localPosition    = weaponSO.rightHandPosition;
+            rightTarget.localEulerAngles = weaponSO.rightHandRotation;
+        }
     }
 
     Transform FindDeepChild(Transform parent, string name) {
