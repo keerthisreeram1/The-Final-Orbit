@@ -17,6 +17,11 @@ MonoBehaviour:
   FireRate: 0.2
   HitVFXPrefab: {fileID: 6563889739181837963, guid: 944f7d598a525b74492e788d40319bec, type: 3}
   IsAutomatic: 1
+  CanZoom: 0
+  ZoomAmount: 10
+  ZoomRotationSpeed: 0.3
+  MaxAmmo: 30
+  ReloadTime: 2
   leftHandPosition: {x: -0.0589, y: -0.00799, z: 0.138}
   rightHandPosition: {x: 0.064, y: -0.0016, z: -0.035}
   leftHandRotation: {x: -146.62, y: 144.648, z: 9.87}

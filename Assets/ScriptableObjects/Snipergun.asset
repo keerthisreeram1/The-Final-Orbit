@@ -19,6 +19,9 @@ MonoBehaviour:
   IsAutomatic: 0
   CanZoom: 1
   ZoomAmount: 10
+  ZoomRotationSpeed: 0.3
+  MaxAmmo: 5
+  ReloadTime: 2
   leftHandPosition: {x: -0.0755, y: -0.039, z: 0.10746}
   rightHandPosition: {x: 0.0575, y: -0.0202, z: -0.18}
   leftHandRotation: {x: 4.587, y: 336.867, z: 178.128}

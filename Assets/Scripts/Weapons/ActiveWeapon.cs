@@ -3,16 +3,19 @@ using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using StarterAssets;
 using Unity.Cinemachine;
+using TMPro;
 
 public class ActiveWeapon : MonoBehaviour
 {
-    [SerializeField] WeaponSO weaponSO;
+    [SerializeField] WeaponSO startingWeaponSO;
     [SerializeField] TwoBoneIKConstraint leftArmIK;
     [SerializeField] TwoBoneIKConstraint rightArmIK;
     [SerializeField] RigBuilder rigBuilder;
     [SerializeField] CinemachineCamera playerFollowCamera;
     [SerializeField] GameObject zoomVignette;
+    [SerializeField] TMP_Text ammoText;
 
+    WeaponSO currentWeaponSO;
     Animator animator;
     FirstPersonController firstPersonController;
     StarterAssetsInputs starterAssetsInputs;
@@ -20,10 +23,13 @@ public class ActiveWeapon : MonoBehaviour
     Camera mainCamera;
 
     bool isSwitching = false;
+    bool isReloading = false;
     float timeSinceLastShot = 0f;
-    const string SHOOT_TRIGGER = "shoot";
     float defaultFOV;
     float defaultRotationSpeed;
+    int currentAmmo;
+
+    const string SHOOT_TRIGGER = "shoot";
 
     private void Awake() {
         starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
@@ -35,17 +41,27 @@ public class ActiveWeapon : MonoBehaviour
     }
 
     private void Start() {
-        currentWeapon = GetComponentInChildren<Weapon>();
-        if (currentWeapon != null) AssignIKTargetsAndRebind();
+        SwitchWeapon(startingWeaponSO);
     }
 
     void Update() {
         HandleShoot();
         HandleZoom();
+        HandleReload();
     }
 
     public void SwitchWeapon(WeaponSO newWeaponSO) {
         StartCoroutine(SwapWeaponRoutine(newWeaponSO));
+    }
+
+    public void AddAmmo(int amount) {
+        if (currentWeaponSO == null) return;
+        currentAmmo = Mathf.Min(currentAmmo + amount, currentWeaponSO.MaxAmmo);
+        UpdateAmmoDisplay();
+    }
+
+    void UpdateAmmoDisplay() {
+        if (ammoText) ammoText.text = $"{currentAmmo} / {currentWeaponSO.MaxAmmo}";
     }
 
     IEnumerator SwapWeaponRoutine(WeaponSO newWeaponSO) {
@@ -62,23 +78,29 @@ public class ActiveWeapon : MonoBehaviour
         weaponGO.transform.localPosition = Vector3.zero;
 
         currentWeapon = weaponGO.GetComponent<Weapon>();
-        weaponSO = newWeaponSO;
+        currentWeaponSO = newWeaponSO;
 
-        // Apply grip positions from WeaponSO
-        ApplyGripPositions(newWeaponSO);
+        currentAmmo = currentWeaponSO.MaxAmmo;
+        UpdateAmmoDisplay();
 
-        // Assign IK targets and rebuild
+        ApplyGripPositions(currentWeaponSO);
         AssignIKTargetsAndRebind();
-
         if (rigBuilder) rigBuilder.Build();
 
         isSwitching = false;
     }
 
+    IEnumerator ReloadRoutine() {
+        isReloading = true;
+        yield return new WaitForSeconds(currentWeaponSO.ReloadTime);
+        currentAmmo = currentWeaponSO.MaxAmmo;
+        UpdateAmmoDisplay();
+        isReloading = false;
+    }
+
     void AssignIKTargetsAndRebind() {
         if (currentWeapon == null) return;
 
-        // Search ActiveWeapon's own children for the targets
         Transform leftTarget  = FindDeepChild(transform, "LeftArm_target");
         Transform rightTarget = FindDeepChild(transform, "RightArm_target");
 
@@ -109,30 +131,44 @@ public class ActiveWeapon : MonoBehaviour
 
     void HandleShoot() {
         timeSinceLastShot += Time.deltaTime;
-        if (isSwitching) return;
+        if (currentWeaponSO == null) return;
+        if (isSwitching || isReloading) return;
         if (starterAssetsInputs == null || currentWeapon == null) return;
         if (!starterAssetsInputs.shoot) return;
+        if (currentAmmo <= 0) return;
 
-        if (timeSinceLastShot >= weaponSO.FireRate) {
-            currentWeapon.Shoot(weaponSO, mainCamera);
+        if (timeSinceLastShot >= currentWeaponSO.FireRate) {
+            currentWeapon.Shoot(currentWeaponSO, mainCamera);
             if (animator) animator.SetTrigger(SHOOT_TRIGGER);
             timeSinceLastShot = 0f;
+            currentAmmo--;
+            UpdateAmmoDisplay();
         }
 
-        if (!weaponSO.IsAutomatic) {
+        if (!currentWeaponSO.IsAutomatic) {
             starterAssetsInputs.ShootInput(false);
         }
     }
 
-    void HandleZoom(){
-        if(!weaponSO.CanZoom) return;
+    void HandleReload() {
+        if (currentWeaponSO == null) return;
+        if (isReloading || isSwitching) return;
+        if (currentAmmo == currentWeaponSO.MaxAmmo) return;
+        if (!starterAssetsInputs.reload) return;
+
+        StartCoroutine(ReloadRoutine());
+    }
+
+    void HandleZoom() {
+        if (currentWeaponSO == null) return;
+        if (!currentWeaponSO.CanZoom) return;
 
         var lens = playerFollowCamera.Lens;
 
-        if(starterAssetsInputs.zoom){
-            lens.FieldOfView = weaponSO.ZoomAmount;
+        if (starterAssetsInputs.zoom) {
+            lens.FieldOfView = currentWeaponSO.ZoomAmount;
             if (zoomVignette) zoomVignette.SetActive(true);
-            firstPersonController.ChangeRotationSpeed(weaponSO.ZoomRotationSpeed);
+            firstPersonController.ChangeRotationSpeed(currentWeaponSO.ZoomRotationSpeed);
         } else {
             lens.FieldOfView = defaultFOV;
             if (zoomVignette) zoomVignette.SetActive(false);

@@ -107,7 +107,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 6873685131539415118}
   shootableLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 321
 --- !u!1 &8254038421270698216
 GameObject:
   m_ObjectHideFlags: 0
