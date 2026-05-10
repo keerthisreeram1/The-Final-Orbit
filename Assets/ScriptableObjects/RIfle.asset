@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ccb3618bbe6394bbb19a296da0cb87, type: 3}
   m_Name: RIfle
   m_EditorClassIdentifier: Assembly-CSharp::NewScriptableObjectScript
-  weaponPrefab: {fileID: 6092373214737715427, guid: 8fad483502ffaba419687bbe6dd09bce, type: 3}
+  weaponPrefab: {fileID: 4117592892787391049, guid: 6230159a7eaf4ae41ba16b6c3e75e59c, type: 3}
   Damage: 1
   FireRate: 0.5
   HitVFXPrefab: {fileID: 6563889739181837963, guid: 944f7d598a525b74492e788d40319bec, type: 3}
