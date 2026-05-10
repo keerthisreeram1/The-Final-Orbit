@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using StarterAssets;
+using Unity.Cinemachine;
 
 public class ActiveWeapon : MonoBehaviour
 {
@@ -9,8 +10,11 @@ public class ActiveWeapon : MonoBehaviour
     [SerializeField] TwoBoneIKConstraint leftArmIK;
     [SerializeField] TwoBoneIKConstraint rightArmIK;
     [SerializeField] RigBuilder rigBuilder;
+    [SerializeField] CinemachineCamera playerFollowCamera;
+    [SerializeField] GameObject zoomVignette;
 
     Animator animator;
+    FirstPersonController firstPersonController;
     StarterAssetsInputs starterAssetsInputs;
     Weapon currentWeapon;
     Camera mainCamera;
@@ -18,11 +22,16 @@ public class ActiveWeapon : MonoBehaviour
     bool isSwitching = false;
     float timeSinceLastShot = 0f;
     const string SHOOT_TRIGGER = "shoot";
+    float defaultFOV;
+    float defaultRotationSpeed;
 
     private void Awake() {
         starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
         mainCamera = Camera.main;
         animator = GetComponent<Animator>();
+        defaultFOV = playerFollowCamera.Lens.FieldOfView;
+        firstPersonController = GetComponentInParent<FirstPersonController>();
+        defaultRotationSpeed = firstPersonController.RotationSpeed;
     }
 
     private void Start() {
@@ -31,8 +40,8 @@ public class ActiveWeapon : MonoBehaviour
     }
 
     void Update() {
-        timeSinceLastShot += Time.deltaTime;
         HandleShoot();
+        HandleZoom();
     }
 
     public void SwitchWeapon(WeaponSO newWeaponSO) {
@@ -99,6 +108,7 @@ public class ActiveWeapon : MonoBehaviour
     }
 
     void HandleShoot() {
+        timeSinceLastShot += Time.deltaTime;
         if (isSwitching) return;
         if (starterAssetsInputs == null || currentWeapon == null) return;
         if (!starterAssetsInputs.shoot) return;
@@ -112,5 +122,23 @@ public class ActiveWeapon : MonoBehaviour
         if (!weaponSO.IsAutomatic) {
             starterAssetsInputs.ShootInput(false);
         }
+    }
+
+    void HandleZoom(){
+        if(!weaponSO.CanZoom) return;
+
+        var lens = playerFollowCamera.Lens;
+
+        if(starterAssetsInputs.zoom){
+            lens.FieldOfView = weaponSO.ZoomAmount;
+            if (zoomVignette) zoomVignette.SetActive(true);
+            firstPersonController.ChangeRotationSpeed(weaponSO.ZoomRotationSpeed);
+        } else {
+            lens.FieldOfView = defaultFOV;
+            if (zoomVignette) zoomVignette.SetActive(false);
+            firstPersonController.ChangeRotationSpeed(defaultRotationSpeed);
+        }
+
+        playerFollowCamera.Lens = lens;
     }
 }
