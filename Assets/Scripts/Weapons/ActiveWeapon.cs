@@ -61,7 +61,7 @@ public class ActiveWeapon : MonoBehaviour
     }
 
     void UpdateAmmoDisplay() {
-        if (ammoText) ammoText.text = $"{currentAmmo} / {currentWeaponSO.MaxAmmo}";
+        if (ammoText) ammoText.text = $"{currentAmmo}";
     }
 
     IEnumerator SwapWeaponRoutine(WeaponSO newWeaponSO) {
