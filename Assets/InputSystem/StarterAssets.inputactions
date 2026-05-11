@@ -271,6 +271,17 @@
                 },
                 {
                     "name": "",
+                    "id": "7fa9577e-468b-4a21-81ed-0b8690d3c667",
+                    "path": "<Pointer>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "4dab369a-1174-4297-a650-7c8ea0213bf9",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -284,6 +295,17 @@
                     "name": "",
                     "id": "93c14ec4-f05f-4905-96d3-bd39eb5ab366",
                     "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7a22e9ac-4ab2-450d-ad7a-e0f96cade584",
+                    "path": "<Pointer>/{SecondaryAction}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

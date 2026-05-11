@@ -47,25 +47,27 @@ namespace StarterAssets
 			SprintInput(value.isPressed);
 		}
 
-		public void OnShoot(InputValue value) {
+		public void OnShoot(InputValue value)
+		{
 			ShootInput(value.isPressed);
 		}
 
-		public void OnZoom(InputValue value) {
+		public void OnZoom(InputValue value)
+		{
 			ZoomInput(value.isPressed);
 		}
 
-		public void ReloadInput(bool newReloadState) {
-			reload = newReloadState;
+		public void OnReload(InputValue value)
+		{
+			ReloadInput(value.isPressed);
 		}
 
 #endif
 
-
 		public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
-		} 
+		}
 
 		public void LookInput(Vector2 newLookDirection)
 		{
@@ -91,7 +93,12 @@ namespace StarterAssets
 		{
 			zoom = newZoomState;
 		}
-		
+
+		public void ReloadInput(bool newReloadState)
+		{
+			reload = newReloadState;
+		}
+
 		private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);
@@ -102,5 +109,4 @@ namespace StarterAssets
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
 	}
-	
 }

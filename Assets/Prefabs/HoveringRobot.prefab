@@ -65,7 +65,13 @@ PrefabInstance:
       addedObject: {fileID: 7129395069281276369}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ee6b4e96d25e3e4f9f31ed5e2666cdb, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 2749847853967076607}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ee6b4e96d25e3e4f9f31ed5e2666cdb, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 7593702742868814017}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ee6b4e96d25e3e4f9f31ed5e2666cdb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3417706193203099134}
   m_SourcePrefab: {fileID: 100100000, guid: 8ee6b4e96d25e3e4f9f31ed5e2666cdb, type: 3}
 --- !u!1 &4455186115906452288 stripped
 GameObject:
@@ -93,6 +99,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1165138, y: 0.9750458, z: 1.0016268}
   m_Center: {x: 0, y: -0.06417741, z: -0.0574435}
+--- !u!195 &2749847853967076607
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4455186115906452288}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.8
+  m_BaseOffset: 0.4
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &7593702742868814017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,3 +134,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   startingHealth: 3
+--- !u!114 &3417706193203099134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4455186115906452288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5fc374e85947f34997cdb66ea84ee4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  detectionRange: 15
+  attackRange: 2
+  patrolRadius: 10
+  patrolWaitTime: 2
+  attackDamage: 10
+  attackCooldown: 1.5
+  patrolSpeed: 2
+  chaseSpeed: 5
