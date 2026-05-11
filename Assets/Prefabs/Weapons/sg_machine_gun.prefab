@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3253521180363590145}
   - component: {fileID: 1912076919311369636}
   - component: {fileID: 4426467350104502638}
-  - component: {fileID: 117788982610352505}
   - component: {fileID: -5950095109034519723}
+  - component: {fileID: 1794620288223193277}
   m_Layer: 0
   m_Name: sg_machine_gun
   m_TagString: Untagged
@@ -93,22 +93,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &117788982610352505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2768874749147238587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a194284b28c04734087db70c0806012d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Weapon
-  muzzleFlash: {fileID: 1675346535699573557}
-  shootableLayers:
-    serializedVersion: 2
-    m_Bits: 321
 --- !u!114 &-5950095109034519723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +146,22 @@ MonoBehaviour:
     DissipationDistance: 100
     PropagationSpeed: 343
   DefaultVelocity: {x: 0, y: -0.04, z: 0}
+--- !u!114 &1794620288223193277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2768874749147238587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93361f38cc5e4e4aaabb62450ccaff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Weapon
+  muzzleFlash: {fileID: 1675346535699573557}
+  shootableLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1001 &1675346535717757899
 PrefabInstance:
   m_ObjectHideFlags: 0
