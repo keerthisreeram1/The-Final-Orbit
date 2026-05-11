@@ -54,7 +54,7 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
-*.idea/
+.idea/
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -106,4 +106,4 @@ Logs/
 UserSettings/
 
 # Mac Devices
-*.DS_Store
+.DS_Store
