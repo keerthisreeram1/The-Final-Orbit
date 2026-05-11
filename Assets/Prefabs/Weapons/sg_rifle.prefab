@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2931303264201224743}
   - component: {fileID: 3294541158995843276}
   - component: {fileID: 8948275946317475758}
-  - component: {fileID: -6917871862903299408}
+  - component: {fileID: 1917957248286369269}
   m_Layer: 8
   m_Name: sg_rifle
   m_TagString: Untagged
@@ -146,7 +146,7 @@ MonoBehaviour:
     DissipationDistance: 100
     PropagationSpeed: 343
   DefaultVelocity: {x: 0, y: -0.02, z: 0}
---- !u!114 &-6917871862903299408
+--- !u!114 &1917957248286369269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4117592892787391049}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c93361f38cc5e4e4aaabb62450ccaff1, type: 3}
+  m_Script: {fileID: 11500000, guid: a194284b28c04734087db70c0806012d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   muzzleFlash: {fileID: 5044032683999232849}
