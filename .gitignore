@@ -107,3 +107,9 @@ UserSettings/
 
 # Mac Devices
 .DS_Store
+
+# Unity auto-generated files
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
+*.csproj
+*.sln
