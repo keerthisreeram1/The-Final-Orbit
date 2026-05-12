@@ -138,4 +138,5 @@ This project is licensed under the [MIT License](LICENSE).
 
 - [Unity Technologies](https://unity.com/)
 - Space Girl 3D model by [Serhii Horbaliov](https://assetstore.unity.com/publishers/37924)
+- Chicken Robot 3D Model by [eymenerdem345](https://sketchfab.com/Robtop_models)
 - CS 4700 · Cal Poly Pomona
