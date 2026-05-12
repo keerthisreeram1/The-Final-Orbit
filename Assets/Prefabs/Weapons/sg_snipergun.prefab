@@ -137,7 +137,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2369003635331334564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a194284b28c04734087db70c0806012d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ec27571a97c4ae29f2ded14023d8204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   muzzleFlash: {fileID: 5770155935446222601}
