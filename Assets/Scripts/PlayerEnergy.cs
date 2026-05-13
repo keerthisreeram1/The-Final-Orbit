@@ -6,6 +6,7 @@ public class PlayerEnergy : MonoBehaviour
     [Range(1, 10)]
     [SerializeField] int maxEnergy = 10;
     [SerializeField] Image[] energyBars;
+
     int currentEnergy;
 
     void Awake()

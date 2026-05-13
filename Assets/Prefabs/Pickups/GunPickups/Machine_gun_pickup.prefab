@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5632089360348136928, guid: 03bd0d8a306c18d46af2c2d85e183134, type: 3}
       propertyPath: m_Name
-      value: BaseWeaponPickup Variant
+      value: Machine_gun_pickup
       objectReference: {fileID: 0}
     - target: {fileID: 6851002479673138747, guid: 03bd0d8a306c18d46af2c2d85e183134, type: 3}
       propertyPath: m_LocalPosition.x

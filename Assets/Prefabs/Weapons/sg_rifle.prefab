@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3294541158995843276}
   - component: {fileID: 8948275946317475758}
   - component: {fileID: 1917957248286369269}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: sg_rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6338511041483963365, guid: 69614eaeaced41249a717d5915c14ffb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8799728242623013699, guid: 69614eaeaced41249a717d5915c14ffb, type: 3}
       propertyPath: playOnAwake

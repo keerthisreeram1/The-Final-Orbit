@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d8d5403a59c144da243e45b1b7cd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  robotExplosionVFX: {fileID: 901547455504923379}
   startingHealth: 4
 --- !u!114 &4189443992243251317
 MonoBehaviour:
@@ -142,6 +143,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 890658248674485960}
+  - {fileID: 2205554923468485343}
   m_Father: {fileID: 5970091907462358986}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
 --- !u!1001 &853143542720020771
@@ -217,4 +219,75 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 40d4c0f04cb66f74bbb33079c13c98f0, type: 3}
   m_PrefabInstance: {fileID: 853143542720020771}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6248383209854755866
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 69574094104202870}
+    m_Modifications:
+    - target: {fileID: 5200817443846198981, guid: c197f568cba5ce54494f19c3dd2be859, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.30000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 5200817443846198981, guid: c197f568cba5ce54494f19c3dd2be859, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.24523926
+      objectReference: {fileID: 0}
+    - target: {fileID: 5200817443846198981, guid: c197f568cba5ce54494f19c3dd2be859, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.7999878
+      objectReference: {fileID: 0}
+    - target: {fileID: 5200817443846198981, guid: c197f568cba5ce54494f19c3dd2be859, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.26347995
+      objectReference: {fileID: 0}
+    - target: {fileID: 5200817443846198981, guid: c197f568cba5ce54494f19c3dd2be859, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70707923
+      objectReference: {fileID: 0}
+    - target: {fileID: 5200817443846198981, guid: c197f568cba5ce54494f19c3dd2be859, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.006243348
+      objectReference: {fileID: 0}
+    - target: {fileID: 5200817443846198981, guid: c197f568cba5ce54494f19c3dd2be859, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.006243348
+      objectReference: {fileID: 0}
+    - target: {fileID: 5200817443846198981, guid: c197f568cba5ce54494f19c3dd2be859, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.70707923
+      objectReference: {fileID: 0}
+    - target: {fileID: 5200817443846198981, guid: c197f568cba5ce54494f19c3dd2be859, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5200817443846198981, guid: c197f568cba5ce54494f19c3dd2be859, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5200817443846198981, guid: c197f568cba5ce54494f19c3dd2be859, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6499899115821817577, guid: c197f568cba5ce54494f19c3dd2be859, type: 3}
+      propertyPath: m_Name
+      value: FX_Robot_Explosion
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c197f568cba5ce54494f19c3dd2be859, type: 3}
+--- !u!1 &901547455504923379 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6499899115821817577, guid: c197f568cba5ce54494f19c3dd2be859, type: 3}
+  m_PrefabInstance: {fileID: 6248383209854755866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2205554923468485343 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5200817443846198981, guid: c197f568cba5ce54494f19c3dd2be859, type: 3}
+  m_PrefabInstance: {fileID: 6248383209854755866}
   m_PrefabAsset: {fileID: 0}

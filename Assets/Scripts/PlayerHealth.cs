@@ -1,12 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.Cinemachine;
 
 public class PlayerHealth : MonoBehaviour
 {
     [Range(1, 10)]
     [SerializeField] int maxHealth = 10;
     [SerializeField] Image[] healthBars;
+    [SerializeField] CinemachineCamera deathVirtualCamera;
+    [SerializeField] Transform weaponCamera;
+
     int currentHealth;
+    int deathVirtualCameraPriority = 20;
 
     void Awake()
     {
@@ -24,7 +29,9 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Debug.Log("Player is dead!");
+            weaponCamera.parent = null;
+            deathVirtualCamera.Priority = deathVirtualCameraPriority;
+            Destroy(this.gameObject);
         }
     }
 

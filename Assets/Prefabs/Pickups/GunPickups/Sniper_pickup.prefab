@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1358409850529301858, guid: 8b14067e35d28d1469dc1f2181302c26, type: 3}
       propertyPath: m_Name
-      value: sg_sniper
+      value: Sniper_pickup
       objectReference: {fileID: 0}
     - target: {fileID: 2688863691768587853, guid: 8b14067e35d28d1469dc1f2181302c26, type: 3}
       propertyPath: weaponSO
