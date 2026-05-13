@@ -51,6 +51,7 @@ public class ActiveWeapon : MonoBehaviour
     }
 
     public void SwitchWeapon(WeaponSO newWeaponSO) {
+        if (isSwitching) return;
         StartCoroutine(SwapWeaponRoutine(newWeaponSO));
     }
 
