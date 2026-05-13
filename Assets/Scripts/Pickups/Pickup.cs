@@ -3,9 +3,10 @@ using UnityEngine;
 public abstract class Pickup : MonoBehaviour
 {
     [SerializeField] float objectRotationSpeed = 100f;
-    const string PLAYER_STRING ="Player";
+    const string PLAYER_STRING = "Player";
 
-    private void Update() {
+    private void Update()
+    {
         transform.Rotate(0f, objectRotationSpeed * Time.deltaTime, 0f);
     }
 
@@ -13,13 +14,10 @@ public abstract class Pickup : MonoBehaviour
     {
         if (other.CompareTag(PLAYER_STRING))
         {
-            ActiveWeapon activeWeapon = other.transform.root.GetComponentInChildren<ActiveWeapon>();
-            OnPickup(activeWeapon);
-            Destroy(this.gameObject);
-
+            OnPickup(other.transform.root);
+            Destroy(gameObject);
         }
-
     }
 
-    protected abstract void OnPickup(ActiveWeapon activeWeapon);
+    protected abstract void OnPickup(Transform playerRoot);
 }

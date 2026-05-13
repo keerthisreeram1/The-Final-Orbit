@@ -34,7 +34,7 @@ public class PlayerEnergy : MonoBehaviour
         return currentEnergy;
     }
 
-    public void HealEnergy(int amount)
+    public void AddEnergy(int amount)
     {
         currentEnergy = Mathf.Min(maxEnergy, currentEnergy + amount);
         AdjustEnergyUI();

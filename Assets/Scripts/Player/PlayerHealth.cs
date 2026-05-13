@@ -57,7 +57,7 @@ public class PlayerHealth : MonoBehaviour
         return currentHealth;
     }
 
-    public void Heal(int amount)
+    public void AddHealth(int amount)
     {
         currentHealth = Mathf.Min(maxHealth, currentHealth + amount);
         AdjustHealthUI();
