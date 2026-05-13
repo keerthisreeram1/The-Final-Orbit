@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Unity.Cinemachine;
+using StarterAssets;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -36,9 +37,18 @@ public class PlayerHealth : MonoBehaviour
 
     void PlayerGameOver()
     {
+        WeaponHolder weaponHolder = GetComponentInChildren<WeaponHolder>();
+        if (weaponHolder != null)
+            weaponHolder.enabled = false;
+
         weaponCamera.parent = null;
         deathVirtualCamera.Priority = deathVirtualCameraPriority;
         gameOverContainer.SetActive(true);
+
+        StarterAssetsInputs starterAssetsInputs = FindFirstObjectByType<StarterAssetsInputs>();
+        if (starterAssetsInputs != null)
+            starterAssetsInputs.SetCursorState(false);
+
         Destroy(this.gameObject);
     }
 
