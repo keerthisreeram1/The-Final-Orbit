@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnGate
   robotPrefab: {fileID: 2522197652580259878, guid: eebfb57f561c71947a6c514ba1cb492e, type: 3}
-  spawnTime: 20
+  spawnTime: 5
   spawnPoint: {fileID: 6214516811273632328}
 --- !u!1 &7939555901185313474
 GameObject:
