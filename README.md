@@ -128,15 +128,19 @@ Inspired by *No Man's Sky* — photorealistic space environments contrasted with
 
 ---
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
 ## 🙏 Acknowledgements
 
 - [Unity Technologies](https://unity.com/)
 - Space Girl 3D model by [Serhii Horbaliov](https://assetstore.unity.com/publishers/37924)
 - Chicken Robot 3D Model by [eymenerdem345](https://sketchfab.com/Robtop_models)
+- Health Pack 3D Model by [Michael](https://sketchfab.com/3d-models/health-pack-9d2c0bc5dbe8488f9be45801184e9319)
+- Sci-Fi Batteries 3D Model by [Daniel Cardona](https://sketchfab.com/3d-models/sci-fi-batteries-88a6ae64f3874c57aa5d008ed1d1c5d9)
 - CS 4700 · Cal Poly Pomona
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+
