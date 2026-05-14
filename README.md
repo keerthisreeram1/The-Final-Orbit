@@ -49,7 +49,7 @@ The Power Source is both your weapon's fuel and humanity's lifeline. It has a ha
 |---|---|
 | `WASD` | Move |
 | `Mouse` | Aim |
-| `Left Click` and 'F' | Shoot |
+| `Left Click` and `F` | Shoot |
 | `Space` | Jump |
 
 ---
