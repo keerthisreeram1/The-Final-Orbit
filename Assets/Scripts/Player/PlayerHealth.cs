@@ -49,7 +49,7 @@ public class PlayerHealth : MonoBehaviour
         if (starterAssetsInputs != null)
             starterAssetsInputs.SetCursorState(false);
 
-        Destroy(this.gameObject);
+        gameObject.SetActive(false);
     }
 
     public int GetHealthAmount()
