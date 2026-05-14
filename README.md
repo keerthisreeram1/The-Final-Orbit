@@ -27,94 +27,126 @@ Survive endless waves of robotic pursuers, keep the power source above its criti
 
 ---
 
-## Gameplay
+## 🎮 Controls
 
-The core loop is simple but tense:
-
-**SCOUT → EVADE → ENGAGE → LOOT → MAINTAIN → REPEAT**
-
-- **Scout** enemy patrol patterns and robot types
-- **Evade** using cover and the space environment
-- **Engage** selectively — shooting drains your Power Source
-- **Loot** defeated enemies and power stations to recover energy
-- **Maintain** your Power Level above the critical threshold to survive
-
-### ⚡ The Power Threshold — Signature Mechanic
-
-The Power Source is both your weapon's fuel and humanity's lifeline. It has a hard minimum floor — let it drop below the threshold and it's game over for everyone. This creates constant tension between offense and conservation that runs through every decision.
-
-### Controls
-
-| Input | Action |
+| Action | Input |
 |---|---|
-| `WASD` | Move |
-| `Mouse` | Aim |
-| `Left Click` and `F` | Shoot |
-| `Space` | Jump |
+| Move | WASD |
+| Look | Mouse |
+| Shoot | Left Mouse Button (hold for auto) |
+| Zoom / ADS | Right Mouse Button (Sniper only) |
+| Sprint | Left Shift |
+| Jump | Space |
 
 ---
 
-## Features
+## 🛠️ Build Instructions
 
-- **Power Economy** — shooting, movement, and survival all draw from one unified resource, creating meaningful trade-offs at every moment
-- **AI Robot Waves** — scout units, heavy assault robots, and turret drones with patrol, detection, and escalating aggression
-- **Oxygen Mechanic** — manage your suit's oxygen meter in open space; find shelter pods to regenerate
-- **Alien Planet Aesthetic** — space backdrops, neon-accented robot enemies and energy weapons
+### Running the Standalone Build
+1. Download the `/Build` folder.
+2. Run the executable (`TheFinalOrbit.exe` on Windows / `.app` on Mac).
+3. No Unity installation required.
 
----
+### Opening the Unity Project
+1. Install **Unity 6** (6000.x LTS) with the **Universal Render Pipeline** module.
+2. Clone this repo and open the root folder in Unity Hub.
+3. Open `Assets/Scenes/Main.unity`.
+4. Hit **Play** — the NavMesh is pre-baked and the scene is ready to run.
 
-## Visual & Audio Style
-
-Inspired by *No Man's Sky* — photorealistic space environments contrasted with high-luminosity, neon-accented enemies and warm gold/silver weapon designs.
-
-- **Background:** Infinite dark space with distant star fields and nebulae
-- **Enemies:** Chrome-bodied robots with red/blue energy cores; glowing turret drones
-- **HUD:** Minimalist — Power Level (gold), Oxygen (blue), ammo counter (white)
-- **Audio:** Subdued and atmospheric — silence is a design tool; tension builds through low-frequency pulses as power drops
+> ⚠️ Do not open `SampleScene` or the ADG/SimpleFX demo scenes — they are asset preview scenes only.
 
 ---
 
-## Screenshots
+## ✅ Features Implemented
 
-| | |
+### 🔫 Raycast Shooting
+- `Physics.Raycast` fired from the main camera center for pixel-perfect hit detection.
+- Muzzle flash particle system plays on every shot.
+- Hit VFX instantiated at the impact point, oriented to the surface normal.
+- Cinemachine `ImpulseSource` generates a camera shake on every shot.
+- Ammo tracked per-weapon with live HUD display; manual reload supported (`R`).
+
+### 🤖 Enemy AI & NavMesh
+- State machine with three states: **Patrol → Chase → Attack**.
+  - **Patrol**: roams to random NavMesh-sampled points within a configurable radius; waits briefly before picking a new destination.
+  - **Chase**: locks onto the player and pursues at elevated speed once within detection range.
+  - **Attack**: stops moving, faces the player, and deals melee damage on a cooldown.
+- Speed, detection range, attack range, damage, and cooldown are all tunable per-enemy in the Inspector.
+- **SpawnGate** system continuously spawns enemy prefabs at configured spawn points while the player is alive.
+- On death, enemies trigger an explosion VFX and decrement the `GameManager` enemy counter.
+- Scene Gizmos show detection (yellow) and attack (red) radii for easy tuning.
+
+### 🗺️ ProBuilder Level — *The Final Orbit*
+- Full level built with **ProBuilder** across multiple distinct combat spaces.
+- Terrain baked with **NavMesh Surface** for full-level AI pathing.
+- Cover objects, elevation changes, and choke points to create varied encounters.
+
+### 🧩 Scriptable Objects
+Three weapon assets live in `Assets/ScriptableObjects/`, each fully data-driven via `WeaponSO`:
+
+| Weapon | Damage | Fire Rate | Ammo | Auto | Zoom |
+|---|---|---|---|---|---|
+| Rifle | 1 | 0.5 s | 12 | ❌ | ❌ |
+| Machine Gun | 2 | 0.2 s | 30 | ✅ | ❌ |
+| Sniper | 5 | 1.0 s | 5 | ❌ | ✅ |
+
+Adding a new weapon variant requires **zero code changes** — just create a new `WeaponSO` asset and assign a prefab. IK hand grip positions are also stored on the SO.
+
+### 📷 Camera Transitions & UI
+- **ADS zoom**: Cinemachine virtual camera FOV lerps to the weapon's configured zoom level; a vignette overlay and reduced mouse sensitivity activate during scope.
+- **Camera shake**: Cinemachine Impulse fires on every shot.
+- **Death camera**: on player death, a dedicated Cinemachine virtual camera takes priority, giving a cinematic third-person death view.
+- **Game Over / You Win screens** activate via `SetActive` — no polling, driven by events.
+- Enemies-remaining counter updates live via `GameManager.AdjustEnemiesLeft()`.
+
+### 🩹 Pickups
+Spinning collectibles (abstract `Pickup` base class) with three concrete types:
+- **Health Pickup** — restores player HP.
+- **Ammo Pickup** — adds ammo to the current weapon.
+- **Energy Pickup** — restores player energy bars.
+- **Weapon Pickup** — swaps the player's weapon to the SO assigned on the pickup.
+
+### 🏥 Player Stats
+- **Health**: icon-based HUD (up to 10 bars), depletes on enemy hits. Death triggers game-over flow.
+- **Energy**: separate icon-based HUD for a secondary resource, replenished via pickups.
+
+### 🎬 Win / Lose Flow
+- **Lose**: triggered when player HP hits 0 — weapon disabled, death cam activates, Game Over UI shown, cursor unlocked.
+- **Win**: triggered when all enemies are eliminated — You Win UI shown, cursor unlocked.
+- Both screens support **Restart** (async scene reload) and **Quit**.
+
+---
+
+## 📁 Project Structure
+
+```
+Assets/
+├── FirstPersonController/   # Unity Starter Assets FPS controller + input
+├── InputSystem/             # StarterAssetsInputs action map
+├── ScriptableObjects/       # WeaponSO assets (Rifle, MachineGun, Sniper)
+├── Scripts/
+│   ├── Enemy/               # EnemyAI, EnemyHealth, Explosion, SpawnGate
+│   ├── Pickups/             # Pickup (abstract), AmmoPickup, EnergyPickup, HealthPickup, WeaponPickup
+│   ├── Player/              # PlayerHealth, PlayerEnergy
+│   ├── UI/                  # GameManager (win/lose, score)
+│   └── Weapons/             # ActiveWeapon, Weapon, WeaponHolder, WeaponSO
+├── Scenes/
+│   └── Main.unity           # ← primary playable scene
+└── ADG_Textures/            # Ground / surface texture packs
+```
+
+---
+
+## 🎨 Asset Attributions
+
+| Asset | Source |
 |---|---|
-| ![Screenshot 1](screenshots/screenshot1.png) | ![Screenshot 2](screenshots/screenshot2.png) |
-
----
-
-## Getting Started
-
-### Prerequisites
-
-- [Unity Hub](https://unity.com/download)
-- Unity Editor **2022.3 LTS** (or newer)
-- Git
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/keerthisreeram1/The-Final-Orbit.git
-   cd The-Final-Orbit
-   ```
-
-2. **Open in Unity Hub**
-   - Launch Unity Hub → **Open** → **Add project from disk**
-   - Select the cloned folder
-
-3. **Open the main scene**
-   - In the Project window, go to `Assets/Scenes/`
-   - Double-click `MainMenu.unity`
-
-4. **Press Play**
-
----
-
-## Built With
-
-- **Engine:** Unity (2022.3.6 LTS)
-- **Language:** C#
-- **Base Templates:** Sharp Shooter (FPS)
+| First Person Controller | Unity Starter Assets (Unity Technologies) |
+| Ground Textures | ADG_Textures Vol. 1 (Unity Asset Store) |
+| Particle VFX | SimpleFX (Unity Asset Store) |
+| TextMesh Pro | Unity Technologies |
+| 3D Character Model | `Assets/Models/Spaces girl/` |
+| Weapon 3D Models | Attributed per-prefab in model import settings |
 
 ---
 
